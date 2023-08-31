@@ -88,5 +88,23 @@
      ```powershell
      Restart-Computer -Force
      ```
+5. **Backup Files and Folders**:
+**Batch Commands**:
+
+```batch
+@echo off 
+set sourcedir=C:\Users\USER
+set targetdir=D:\Backup
+Robocopy %sourcedir% %targetdir% * /e /j /r:10 /v
+pause
+exit
+```
+
+**PowerShell Command**:
+
+```powershell
+Wbadmin start backup -backupTarget:D: -include:c: -allCritical -quiet
+```
 
 ---
+This example demonstrates how to perform backup tasks using both Batch Commands and PowerShell commands. The Batch Commands utilize the `Robocopy` utility to copy files and folders from a source directory to a target directory. The PowerShell command uses `Wbadmin` to start a backup process, including critical files and the entire C: drive. This is a great addition to your content to showcase backup automation.
